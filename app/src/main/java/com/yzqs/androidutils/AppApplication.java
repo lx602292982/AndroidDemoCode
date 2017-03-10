@@ -11,13 +11,14 @@ import com.yzqs.utilslibrary.Utils;
  * Created by lixiang on 2017/3/9.
  */
 
-public class App extends Application {
+public class AppApplication extends Application {
     private static Context mContext;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Utils.init(getApplicationContext());
+        this.mContext = getBaseContext();
+        Utils.init(mContext);
         CrashUtils.getInstance().init();
     }
 

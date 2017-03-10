@@ -19,13 +19,13 @@ import com.yzqs.utilslibrary.ConvertUtils;
 
 public abstract class BackBaseActivity extends BaseActivity {
 
-    public FrameLayout main;
+    private FrameLayout main;
+    private Toolbar bar;
+    private TextView leftText;
     private View content;
-    public Toolbar bar;
     private int statusBarHeight = 0;
     private TextView centerText;
     public View barDivider;
-    public TextView leftText;
     public TextView rightText;
     public ImageView rightImg;
     private onTextClick listener;
