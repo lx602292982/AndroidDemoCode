@@ -7,9 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/AndroidUitlsCode/AndroidUitlsCode.iml" filepath="$PROJECT_DIR$/AndroidUitlsCode/AndroidUitlsCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/AndroidUtils.iml" filepath="$PROJECT_DIR$/AndroidUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/utilslibrary/utilslibrary.iml" filepath="$PROJECT_DIR$/utilslibrary/utilslibrary.iml" />
     </modules>
   </component>
 </project>

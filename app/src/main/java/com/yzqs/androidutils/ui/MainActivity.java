@@ -1,28 +1,30 @@
 package com.yzqs.androidutils.ui;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.text.Html;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yzqs.androidutils.R;
-import com.yzqs.androidutils.view.backactivity.BackBaseActivity;
-import com.zhy.android.percent.support.PercentLinearLayout;
+import com.yzqs.androidutils.data.article.ArticleItemData;
+import com.yzqs.androidutils.mvp.BaseMvpActivity;
+import com.yzqs.androidutils.mvp.presenter.article.ArtitcleItemPresenter;
+import com.yzqs.androidutils.mvp.view.article.ArticleItemView;
+import com.yzqs.androidutils.view.weiget.LoadingDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.yzqs.utilslibrary.ImageUtils.drawable2Bitmap;
-import static com.yzqs.utilslibrary.ImageUtils.fastBlur;
 
-public class MainActivity extends BackBaseActivity {
+public class MainActivity extends BaseMvpActivity<ArticleItemView, ArtitcleItemPresenter> implements ArticleItemView {
 
-    @BindView(R.id.test_image)
-    ImageView testImage;
-    @BindView(R.id.activity_main)
-    PercentLinearLayout activityMain;
+    LoadingDialog dialog;
+    @BindView(R.id.test)
+    TextView test;
+    @BindView(R.id.title)
+    TextView title;
+    @BindView(R.id.author)
+    TextView author;
 
     @Override
     public void setToolBar(Toolbar bar) {
@@ -37,9 +39,31 @@ public class MainActivity extends BackBaseActivity {
     @Override
     public void init() {
         ButterKnife.bind(mContext);
-        Drawable drawable =  getResources().getDrawable(R.mipmap.test);
-        Bitmap bitmap = fastBlur(drawable2Bitmap(drawable), 0.1f, 25);
-        testImage.setImageBitmap(bitmap);
+        dialog = new LoadingDialog(mContext);
     }
 
+    @Override
+    protected ArtitcleItemPresenter initPresenter() {
+        return new ArtitcleItemPresenter();
+    }
+
+    @Override
+    protected void fetchData() {
+        mPresenter.getArtitcleData(1);
+        dialog.show();
+    }
+
+    @Override
+    public void onSuccess(ArticleItemData data) {
+        dialog.dismiss();
+        title.setText(data.getData().getTitle());
+        author.setText(data.getData().getAuthor()+"\n");
+        test.setText(Html.fromHtml(data.getData().getContent()));
+    }
+
+    @Override
+    public void onError(String error) {
+        dialog.dismiss();
+        Toast.makeText(mContext, "error"+error, Toast.LENGTH_SHORT).show();
+    }
 }

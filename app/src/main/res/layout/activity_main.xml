@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.yzqs.androidutils.ui.MainActivity">
 
-    <ImageView
-        android:id="@+id/test_image"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_heightPercent="100%"
-        app:layout_widthPercent="100%"
-        android:scaleType="fitXY"
-        android:src="@mipmap/test" />
-</com.zhy.android.percent.support.PercentLinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textSize="@dimen/title_text_size" />
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/base_text_size" />
+
+            <TextView
+                android:id="@+id/test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/base_text_size" />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

@@ -59,7 +59,7 @@ public abstract class BackBaseActivity extends BaseActivity {
 
         bar.setTitle("");
         bar.setTitleTextAppearance(this, R.style.ToolBarTitle);
-        bar.setBackgroundResource(R.color.colorPrimary);
+        bar.setBackgroundResource(R.color.colorAccent);
         resetToolBar();
         setToolBar(bar);
         setSupportActionBar(bar);

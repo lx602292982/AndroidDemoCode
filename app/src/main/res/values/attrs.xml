@@ -56,6 +56,9 @@
         <attr name="hasStickyHeaders" format="boolean" />
         <attr name="isDrawingListUnderStickyHeader" format="boolean" />
     </declare-styleable>
-
+    <declare-styleable name="CenterMenuView">
+        <attr name="menu_icon" format="reference" />
+        <attr name="menu_title" format="string" />
+    </declare-styleable>
 
 </resources>
